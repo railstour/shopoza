@@ -7,8 +7,8 @@
       </div>
       <img data-src='holder.js/100%x200/?text=Image' alt='iPhone'>
       <div class='card-block'>
-           <%= book.summary %>
          <p class='card-text card-summary'>
+           <%= short_summary(book.summary,100, '#') %>
          </p>
          <input type="number" name="quantity">
          <div class='btn-group'>
