@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20151204133127) do
   add_index "order_details", ["order_id"], name: "index_order_details_on_order_id"
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "gross_amount"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
