@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   	sessions: "users/sessions",
   	unlocks: "users/unlocks"
   }
-  
+
   root to: "home#index"
+
+  resources :orders
 end
