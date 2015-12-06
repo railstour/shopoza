@@ -25,10 +25,10 @@ class OrdersController < ApplicationController
 
   private
   def find_order
-    order = Order.find_by_status('template')
+    order = Order.find_by_status('shopping')
 
     if order.blank?
-      order = Order.new(user: current_user, status: 'template')
+      order = Order.new(user: current_user, status: 'shopping')
       order = nil unless order.save
     end
     order
