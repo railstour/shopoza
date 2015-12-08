@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.for_user(current_user)
+  end
+
   def create
     if current_user.present?
       order = find_order
