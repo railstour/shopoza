@@ -7,4 +7,8 @@ class OrderDetail < ActiveRecord::Base
   def set_unit_price
     self.unit_price = book.price
   end
+
+  def total_price
+    unit_price * quantity
+  end
 end

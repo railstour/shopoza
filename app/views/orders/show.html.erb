@@ -1,0 +1,29 @@
+<div class="col-sm-12 col-sm-offset-2">
+  <table class="table table-hover table-stripped table-responsive">
+    <thead>
+      <tr>
+        <td colspan='2'>Buku</td>
+        <td>Harga Satuan</td>
+        <td>Kuantitas</td>
+      </tr>
+    </thead>
+    <% @order.order_details.each do |order_detail|%>
+      <tr>
+        <td>
+          <img src='https://images-na.ssl-images-amazon.com/images/I/51HWaRzG42L._SS100_.jpg' alt='iPhone'>
+        </td>
+        <td>
+          <%= order_detail.book.title %>
+        </td>
+
+        <td>
+          <%= money_amount(order_detail.unit_price) %>
+        </td>
+
+        <td>
+          <% order_detail.quantity %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

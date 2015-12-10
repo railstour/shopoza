@@ -3,3 +3,10 @@
  *= require bootstrap.min
  *= require_tree .
  */
+ .number-field{
+   max-width: 44px;
+ }
+ .book-preview {
+   display: inline-block;
+   width: 100px;
+ }
