@@ -21,9 +21,20 @@
         </td>
 
         <td>
-          <% order_detail.quantity %>
+          <%= form_for order_detail, url: order_order_detail_path(order_id: @order.id, id: order_detail.id) do |f| %>
+            <%= f.number_field :quantity, step: 1, min: 1, class: 'number-field' %>
+            <%= f.submit 'update',  class: 'btn btn-warning btn-sm'%>
+          <% end %>
+          <%= link_to 'delete', order_order_detail_path(id: order_detail, order_id: @order.id), method: :delete, confirm: 'are you sure?', class: 'btn btn-default', role: 'button'%>
         </td>
       </tr>
     <% end %>
+    <tfoot>
+      <tr>
+        <td colspan='2'></td>
+        <td>total</td>
+        <td><%= money_amount(@order.total_price) %></td>
+      </tr>
+    </tfoot>
   </table>
 </div>
