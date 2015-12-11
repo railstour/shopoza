@@ -21,11 +21,15 @@
         </td>
 
         <td>
-          <%= form_for order_detail, url: order_order_detail_path(order_id: @order.id, id: order_detail.id) do |f| %>
-            <%= f.number_field :quantity, step: 1, min: 1, class: 'number-field' %>
-            <%= f.submit 'update',  class: 'btn btn-warning btn-sm'%>
-          <% end %>
-          <%= link_to 'delete', order_order_detail_path(id: order_detail, order_id: @order.id), method: :delete, confirm: 'are you sure?', class: 'btn btn-default', role: 'button'%>
+          <div class="inline-block">
+            <%= form_for order_detail, url: order_order_detail_path(order_id: @order.id, id: order_detail.id) do |f| %>
+              <%= f.number_field :quantity, step: 1, min: 1, class: 'number-field' %>
+              <%= f.submit 'update',  class: 'btn btn-warning btn-sm'%>
+            <% end %>
+          </div>
+          <div class= "inline-block">
+            <%= link_to 'delete', order_order_detail_path(id: order_detail, order_id: @order.id), method: :delete, confirm: 'are you sure?', class: 'btn btn-danger btn-sm', role: 'button'%>
+          </div>
         </td>
       </tr>
     <% end %>
