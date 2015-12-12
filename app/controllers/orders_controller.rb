@@ -21,6 +21,12 @@ class OrdersController < ApplicationController
         return
       end
 
+      if !params[:order_detail][:quantity].to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) || params[:order_detail][:quantity].to_i < 0
+        flash[:alert] = 'quantity must be number and greater than 0'
+        redirect_to :back
+        return
+      end
+
       book = Book.find(params[:order_detail][:book_id])
 
       order_detail = OrderDetail.find_by(book: book, order: order)
