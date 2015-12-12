@@ -10,3 +10,11 @@
    display: inline-block;
    width: 100px;
  }
+
+ .flash-message{
+  border-radius: 5px;
+  padding: 11px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+ }
