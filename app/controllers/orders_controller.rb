@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     if current_user.present?
       order = find_order
       if order.blank?
-        params[:alert] = "This Order is not belongs to you"
+        flash[:alert] = "This Order is not belongs to you"
         redirect_to :back
         return
       end
