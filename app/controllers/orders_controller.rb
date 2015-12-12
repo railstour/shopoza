@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def no_cart
+    flash[:alert] = 'you have not put anything in the cart'
+    redirect_to root_path
+  end
+
   def create
     if current_user.present?
       order = find_order

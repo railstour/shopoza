@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :orders do
-    resources :order_details
+  resources :orders, only: [:index, :show, :create] do
+    collection do
+      get :no_cart
+    end
+    resources :order_details, only: [:update, :destroy]
   end
 end

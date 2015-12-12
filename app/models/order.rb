@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   validates_inclusion_of :status, in: ['shopping']
 
   scope :for_user, lambda{ |user| where(user: user) }
+  scope :status_shopping, lambda{ where(status: 'shopping')}
 
   before_save :set_total_price
 
