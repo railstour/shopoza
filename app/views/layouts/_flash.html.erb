@@ -1,8 +1,6 @@
 <% if flash[:notice] %>
   <div class="bg-success flash-message">
-    <p>
-      <%= flash[:notice]%>
-    </p>
+    <%= flash[:notice]%>
   </div>
 <% elsif flash[:alert] %>
   <div class="bg-danger flash-message">
