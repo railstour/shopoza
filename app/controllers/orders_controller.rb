@@ -35,7 +35,11 @@ class OrdersController < ApplicationController
         order_detail.quantity += params[:order_detail][:quantity].to_i
         success = order_detail.save
       else
-        order_detail = OrderDetail.create(book: book, quantity: params[:order_detail][:quantity], order: order)
+        order_detail = OrderDetail.create(
+          book: book,
+          quantity: params[:order_detail][:quantity],
+          order: order
+        )
         success = order_detail.persisted?
       end
 
