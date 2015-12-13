@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def short_summary(words, length, link)
-    summary = words[0 .. length]
+    summary = words.truncate(length, separator: ' ')
     "#{summary} #{link_to('see more', link)}".html_safe
   end
 end
