@@ -18,7 +18,7 @@ Book.create(
   title: 'Bumi Manusia',
   author: 'Pramoedya Ananta Toer',
   summary: 'mengambil latar belakang Indonesia di awal abad ke-20. Dengan membacanya kita dibalikkan hidup di era membibitnya pergerakan nasional mula-mula, percintaan, dan pertarungan kekuatan anonim para srikandi yang mengawal penyemaian bangunan nasional',
-  image: 'http://wpc.21684.lambdacdn.net/8021684/cdn/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/u/bumi-manusia_1.jpg',
+  image: 'http://wpc.21684.lambdacdn.net/8021684/cdn/media/catalog/product/cache/1/small_image/124x168/9df78eab33525d08d6e5fb8d27136e95/b/u/bumi-manusia_1.jpg',
   price: 112_200,
   quantity: 50
 )
