@@ -1,8 +1,8 @@
 <div class='card-deck'>
-  <% @books.each do |book|%>
+  <% @books.each do |book| %>
     <div class='card'>
       <div class='card-block card-header background-white'>
-        <h5 class='card-title'><%= book.title%></h4>
+        <h5 class='card-title'><%= book.title %></h4>
         <h6 class='card-subtitle text-muted'><%= money_amount(book.price) %></h6>
       </div>
       <img data-src='holder.js/100%x200/?text=Image' alt='iPhone'>
@@ -10,7 +10,7 @@
         <p class='card-text card-summary'>
           <%= short_summary(book.summary,100, '#') %>
         </p>
-        <%= form_for @order_detail, url: orders_path do |f|%>
+        <%= form_for @order_detail, url: orders_path do |f| %>
           <%= f.hidden_field :book_id, value: book.id %>
           <%= f.number_field :quantity, step: 1 %>
           <div class='btn-group'>
