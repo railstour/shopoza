@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  mount Veritrans::Events.new => "/vt/callbacks"
+
   resources :orders, only: [:index, :show, :create] do
     collection do
       get :no_cart
