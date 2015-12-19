@@ -32,6 +32,7 @@ class Order < ActiveRecord::Base
   end
 
   def transaction_details
+    fake_phone = "0856#{Random.srand.to_s[0..7]}"
     {
       transaction_details: {
         order_id: id,
@@ -47,6 +48,19 @@ class Order < ActiveRecord::Base
             name: book.title
           }
         end
+      end,
+      customer_details: {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+        phone: fake_phone,
+        billing_address: {
+          first_name: user.first_name,
+          last_name: user.last_name,
+          phone: fake_phone
+        }
+      }.tap do |customer_details|
+        customer_details[:shipping_address] = customer_details[:billing_address]
       end
     }
   end
