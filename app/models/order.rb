@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  has_many :order_details
+  has_many :order_details, dependent: :destroy
 
   STATUS_SHOPPING = 'shopping'
   STATUS_CANCELLED = 'cancelled'
