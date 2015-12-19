@@ -20,3 +20,19 @@
     }
 	}
 }
+
+.payment_option_forms {
+  .payment_form {
+    display: none;
+
+    &.selected_option {
+      display: block;
+    }
+
+    form {
+      input[type='submit'] {
+        margin-top: 30px;
+      }
+    }
+  }
+}
