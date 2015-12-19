@@ -18,6 +18,10 @@ class CheckoutsController < ApplicationController
   def delete
   end
 
+  # fill in form for check out, in-site, using VT-Direct
+  def direct_form
+  end
+
   private
 
   def find_shopping_cart

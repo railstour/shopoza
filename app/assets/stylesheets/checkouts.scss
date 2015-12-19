@@ -1,0 +1,22 @@
+// Place all the styles related to the Checkout controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.payment_options {
+  margin: 10px 5px;
+  padding: 0;
+	li {
+    margin: 5px 12px;
+		list-style: none;
+		display: inline-block;
+    border: 2px solid #e0e0e0;
+
+    img {
+      width: 100px;
+    }
+
+    &.selected_option {
+      border: 2px solid black;
+    }
+	}
+}
