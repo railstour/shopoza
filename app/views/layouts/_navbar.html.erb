@@ -26,9 +26,11 @@
          </li>
       </ul>
    </div>
-   <form class='form-inline navbar-form pull-right hidden-sm-down' style='margin: 0;'>
-      <button class='btn btn-success-outline' type='submit'>Checkout</button>
-   </form>
+   <%= form_tag checkouts_path,
+      class: "form-inline navbar-form pull-right hidden-sm-down",
+      style: "margin: 0;" do %>
+        <%= submit_tag "Checkout", class: "btn btn-success-outline" %>
+   <% end %>
 </nav>
 <br/>
 <br/>
