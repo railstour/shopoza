@@ -47,3 +47,5 @@ end
 
 gem 'devise', '~> 3.5'
 gem 'rspec-rails', '~> 3.3', group: [:development, :test]
+gem 'dotenv'
+gem 'foreman'
