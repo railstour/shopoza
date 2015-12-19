@@ -5,9 +5,8 @@ class CheckoutsController < ApplicationController
   USE_VT_WEB = true
 
   def create
-  	order = Order.for_user(current_user).status_shopping
-    if order.present?
-      redirect_to root_path, notice: "Checked out!"
+    if @order.present?
+      USE_VT_WEB ? checkout_web : checkout_direct
     else
       redirect_to root_path, notice: "Nothing to checkout"
     end
