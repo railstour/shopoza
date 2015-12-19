@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
 
   private
   def find_order
-    order = Order.status_shopping.for_user(current_user)
+    order = Order.status_shopping.for_user(current_user).first
 
     if order.blank?
       order = Order.new(user: current_user, status: 'shopping')
