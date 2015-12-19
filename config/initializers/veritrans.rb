@@ -1,5 +1,15 @@
 Veritrans.setup do
-  config.load_config Rails.root.join("config/veritrans.yml")
+  config.client_key = if Rails.env.production?
+    ENV["VT_PROD_CLIENT_KEY"]
+  else
+    ENV["VT_DEV_CLIENT_KEY"]
+  end
+
+  config.server_key = if Rails.env.production?
+    ENV["VT_PROD_SERVER_KEY"]
+  else
+    ENV["VT_DEV_SERVER_KEY"]
+  end
 
   # Or set it manually...
   # config.server_key = ""
