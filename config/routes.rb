@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  mount Veritrans::Events.new => "/vt/callbacks"
-
   resources :orders, only: [:index, :show, :create] do
     collection do
       get :no_cart
@@ -19,5 +17,9 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update, :destroy]
   end
 
-  resources :checkouts, only: [:create, :index, :delete]
+  resources :checkouts, only: [:create, :index, :delete] do
+    collection do
+      get "/gateway/callbacks" => "checkouts#gateway_callbacks"
+    end
+  end
 end
