@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   STATUS_SHOPPING = 'shopping'
   STATUS_CANCELLED = 'cancelled'
   STATUS_WAITING_PAYMENT = 'waiting_payment'
+  STATUS_PAYMENT_RECEIVED = 'payment_received'
   STATUS_PROCESSED = 'processed'
   STATUS_DELIVERING = 'shipping'
   STATUS_RECEIVED = 'received'
@@ -13,6 +14,7 @@ class Order < ActiveRecord::Base
     STATUS_SHOPPING,
     STATUS_CANCELLED,
     STATUS_WAITING_PAYMENT,
+    STATUS_PAYMENT_RECEIVED,
     STATUS_PROCESSED,
     STATUS_DELIVERING,
     STATUS_RECEIVED
