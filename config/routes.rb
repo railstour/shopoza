@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     end
     resources :order_details, only: [:update, :destroy]
   end
+
+  resources :checkouts, only: [:create, :index, :delete]
 end
