@@ -1,26 +1,23 @@
-<div class='card-deck'>
-  <% @books.each do |book| %>
-    <div class='card center-text'>
-      <div class='card-block card-header background-white'>
-        <h5 class='card-title'><%= book.title %></h4>
-        <h6 class='card-subtitle text-muted'><%= money_amount(book.price) %></h6>
+<% @books.each do |book| %>
+  <div class='col-sm-4'>
+    <div class='thumbnail'>
+      <div class='caption'>
+        <h5><%= book.title %></h4>
+        <h6><%= money_amount(book.price) %></h6>
       </div>
-      <!-- <img data-src='holder.js/100%x200/?text=Image' alt='iPhone'> -->
-      <div class= 'image-index'>
-        <%= image_tag book.image,width: 150, height: 150 %>
-      </div>
-      <div class='card-block'>
+      <%= image_tag book.image,width: 150, height: 150 %>
+      <div class='caption'>
         <p class='card-text card-summary'>
           <%= short_summary(book.summary,100, '#') %>
+          <%= form_for @order_detail, url: orders_path do |f| %>
+            <%= f.hidden_field :book_id, value: book.id %>
+            <%= f.number_field :quantity, step: 1 %>
+            <div class='btn-group'>
+              <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
         </p>
-        <%= form_for @order_detail, url: orders_path do |f| %>
-          <%= f.hidden_field :book_id, value: book.id %>
-          <%= f.number_field :quantity, step: 1 %>
-          <div class='btn-group'>
-            <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
-          </div>
-        <% end %>
-      </div> <!-- card block -->
-    </div> <!-- card -->
-  <% end %>
-</div> <!-- card deck -->
+      </div>
+    </div>
+  </div>
+<% end %>
