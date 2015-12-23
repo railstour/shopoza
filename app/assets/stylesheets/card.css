@@ -1,3 +1,16 @@
 .inline-block{
   display: inline-block;
 }
+.thumbnail-header {
+  text-align: center;
+  height: 100px;
+}
+.thumbnail-description{
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: justify;
+}
+.thumbnail-image{
+  height: 185px;
+  text-align: center;
+}

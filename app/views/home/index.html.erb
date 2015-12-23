@@ -1,13 +1,15 @@
 <% @books.each do |book| %>
   <div class='col-sm-4'>
     <div class='thumbnail'>
-      <div class='caption'>
-        <h5><%= book.title %></h4>
-        <h6><%= money_amount(book.price) %></h6>
+      <div class='caption thumbnail-header'>
+        <h4><%= book.title %></h4>
+        <h5><%= money_amount(book.price) %></h5>
       </div>
-      <%= image_tag book.image,width: 150, height: 150 %>
-      <div class='caption'>
-        <p class='card-text card-summary'>
+      <div class='thumbnail-image'>
+        <%= image_tag book.image,width: 150, height: 180 %>
+      </div>
+      <div class='caption thumbnail-description'>
+        <p>
           <%= short_summary(book.summary,100, '#') %>
           <%= form_for @order_detail, url: orders_path do |f| %>
             <%= f.hidden_field :book_id, value: book.id %>
