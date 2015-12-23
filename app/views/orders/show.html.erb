@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-sm-offset-2">
+<div class="col-sm-12">
   <table class="table table-hover table-stripped table-responsive">
     <thead>
       <tr>
@@ -10,8 +10,7 @@
     <% @order.order_details.each do |order_detail| %>
       <tr>
         <td>
-          <!-- <img src='https://images-na.ssl-images-amazon.com/images/I/51HWaRzG42L._SS100_.jpg' alt='iPhone'> -->
-          <%= image_tag order_detail.book.image, width: 100, height: 100 %>
+          <%= image_tag order_detail.book.image, width: 100, height: 130 %>
         </td>
         <td>
           <%= order_detail.book.title %>
@@ -34,8 +33,8 @@
     <tfoot>
       <tr>
         <td colspan='2'></td>
-        <td>total</td>
-        <td><%= money_amount(@order.total_price) %></td>
+        <td class='order-total'>Total</td>
+        <td class='order-total'><%= money_amount(@order.total_price) %></td>
       </tr>
     </tfoot>
   </table>
