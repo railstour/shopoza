@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require bootstrap.min
  *= require_tree .
  */
  .number-field{
@@ -10,12 +11,16 @@
    width: 100px;
  }
 
+ .flash-message{
+   border-radius: 5px;
+   font-size: 22px;
+   text-transform: uppercase;
+   font-weight: bold;
+   padding: 10px 7px 0.1px 15px;
+   padding-bottom: 7px;
+   padding-left: 15px;
+   padding-top: 10px;
+ }
  .center-text{
    text-align: center;
  }
-.order-total{
-  font-size: 18px;
-}
-#error_explanation h2{
-  font-size:18px;
-}
