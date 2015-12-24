@@ -13,7 +13,7 @@
         <p class='card-text card-summary'>
           <%= short_summary(book.summary,100, '#') %>
         </p>
-        <%= form_for @order_detail, url: orders_path do |f| %>
+        <%= form_for @order_detail, url: carts_path do |f| %>
           <%= f.hidden_field :book_id, value: book.id %>
           <%= f.number_field :quantity, step: 1 %>
           <div class='btn-group'>

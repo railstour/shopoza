@@ -1,4 +1,4 @@
-class OrderDetailsController < ApplicationController
+class CartDetailsController < ApplicationController
   def update
     order_detail = OrderDetail.joins(:order).find_by(id: params[:id], orders: { user_id: current_user.id, status: 'shopping' })
     if order_detail.present?

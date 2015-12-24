@@ -1,0 +1,43 @@
+<% if @order.order_details.present?%>
+  <div class="col-sm-12 col-sm-offset-2">
+    <table class="table table-hover table-stripped table-responsive">
+      <thead>
+        <tr>
+          <td colspan='2'>Buku</td>
+          <td>Harga Satuan</td>
+          <td>Kuantitas</td>
+        </tr>
+      </thead>
+      <% @order.order_details.each do |order_detail| %>
+        <tr>
+          <td>
+            <%= image_tag order_detail.book.image, width: 100, height: 130 %>
+          </td>
+          <td>
+            <%= order_detail.book.title %>
+          </td>
+
+          <td>
+            <%= money_amount(order_detail.unit_price) %>
+          </td>
+
+          <td>
+            <div class="inline-block">
+              <%= render 'order_form', order_detail: order_detail %>
+            </div>
+            <div class= "inline-block">
+              <%= link_to 'delete', cart_detail_path(id: order_detail), method: :delete, data:{ confirm: 'are you sure?' }, class: 'btn btn-danger btn-sm', role: 'button' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      <tfoot>
+        <tr>
+          <td colspan='2'></td>
+          <td>total</td>
+          <td><%= money_amount(@order.total_price) %></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+<% end %>
