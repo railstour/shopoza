@@ -1,1 +1,19 @@
 <h2>CIMB Clicks</h2>
+
+<ol>
+	<li>Pastikan anda memiliki User ID dan mPIN CIMB Clicks</li>
+	<li>Saldo anda akan di-debit otomatis sesuai dengan transaksi
+		yang harus dibayarkan</li>
+	<li>Transaksi minimal yang diperbolehkan adalah Rp. 10.000,00</li>
+	<li>Anda memilki waktu 1 jam untuk menyelesaikan transaksi sebelum
+		transaksi tersebut otomatis dibatalkan oleh sistem</li>
+	<li>Pastikan tidak ada plugin di browser yang memblok popup</li>
+
+	<%= form_tag direct_checkouts_path do %>
+		<%= hidden_field_tag "direct[method]", "cimb_clicks" %>
+		<%= hidden_field_tag "direct[cimb_clicks][description]",
+				"Pembayaran untuk order ##{@order.id}" %>
+
+    <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+	<% end %>
+</ol>

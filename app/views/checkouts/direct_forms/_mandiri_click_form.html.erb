@@ -1,1 +1,64 @@
 <h2>Mandiri Clickpay</h2>
+
+<ol>
+	<li>Pastikan anda memiliki Mandiri Token</li>
+	<li>Saldo anda akan di-debit otomatis sesuai dengan transaksi
+		yang harus dibayarkan</li>
+	<li>Pastikan tidak ada plugin di browser yang memblok popup</li>
+	<li>Klik 3 saat ditanyai kode APPLI oleh Mandiri Token anda</li>
+	<li>Isikan 10 digit terakhir kartu debit Mandiri anda.
+		Tekan tombol merah (>) di Mandiri Token anda</li>
+	<li>Kemudian, isikan total nilai transaksi.
+		Tekan tombol merah (>) di Mandiri Token anda</li>
+	<li>Kemudian, isikan 5 digit acak.
+		Tekan tombol merah (>) di Mandiri Token anda</li>
+	<li>Isikan kode respon dari Mandiri Token anda ke dalam "Challenge Token"</li>
+</ol>
+
+<%= form_tag direct_checkouts_path do %>
+	<%= hidden_field_tag "direct[method]", "mandiri_clickpay" %>
+	<fieldset class="form-group">
+    <label for="mandiri_clickpay_card_number" 
+      class="col sm-2 form-control-label">
+			Nomor kartu debit anda
+		</label>
+		<%= text_field_tag "direct[mandiri_clickpay][card_number]", 
+      "", id: "mandiri_clickpay_card_number", class: "form-control",
+      placeholder: "4111 1111 1111 1111"%>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="input1">
+			10 digit terakhir
+		</label>	
+		<%= text_field_tag "direct[mandiri_clickpay][input1]", 
+			"", id: "input1", class: "form-control", disabled: :disabled %>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="input2">
+			Nilai total transaksi:
+		</label>		
+		<%= text_field_tag "direct[mandiri_clickpay][input2]", 
+			@order.total_price, id: "input2", class:" form-control",
+			disabled: :disabled  %>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="input3">
+			5 digit acak:
+		</label>
+		<%= text_field_tag "direct[mandiri_clickpay][input3]", 
+			"", id: "input3", class: "form-control", disabled: :disabled %>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="mandiri_token">
+			Kode respon Mandiri Token:
+		</label>
+		<%= text_field_tag "direct[mandiri_clickpay][token]", "",
+			class: "form-control", placeholder: "000000/111111" %>
+	</fieldset>
+
+  <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+<% end %>

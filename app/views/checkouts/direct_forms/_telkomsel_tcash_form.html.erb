@@ -1,1 +1,23 @@
 <h2>Telkomsel t-Cash</h2>
+
+<h2>CIMB Clicks</h2>
+
+<ol>
+	<li>Pastikan anda memiliki token Telkomsal t-Cash</li>
+</ol>
+
+<%= form_tag direct_checkouts_path do %>
+	<fieldset class="form-group">
+		<label for="telkomsel_customer">
+      Token number
+		</label>
+		<%= text_field_tag "direct[telkomsel_cash][customer]", 
+			"", id: "telkomsel_customer", class: "form-control" %>
+	</fieldset>
+
+	<%= hidden_field_tag "direct[method]", "telkomsel_cash" %>
+	<%= hidden_field_tag "direct[telkomsel_cash][promo]", "false" %>
+	<%= hidden_field_tag "direct[telkomsel_cash][is_reversal]", "0" %>
+
+    <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+<% end %>

@@ -1,1 +1,15 @@
-<h2>Permata Bank Transfer</h2>
+<h2>Telkomsel t-Cash</h2>
+
+<h2>CIMB Clicks</h2>
+
+<ol>
+	<li>Pastikan anda dapat melakukan bank transfer menggunakan kartu
+		debit/internet banking ke rekening Bank Permata</li>
+</ol>
+
+<%= form_tag direct_checkouts_path do %>
+	<%= hidden_field_tag "direct[method]", "bank_transfer" %>
+	<%= hidden_field_tag "direct[bank_transfer][bank]", "Permata" %>
+
+    <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+<% end %>

@@ -1,1 +1,53 @@
 <h2>Kartu Kredit</h2>
+
+<%= form_tag direct_checkouts_path do %>
+	<%= hidden_field_tag "direct[method]", "credit_card" %>
+	<fieldset class="form-group">
+    <label for="cc_card_number" class="col sm-2 form-control-label">
+      Nomor kartu credit card anda
+    </label>
+    <%= hidden_field_tag "direct[credit_card][token_id]", "", id: "cc_token_id" %>
+		<%= text_field_tag "direct[credit_card]",
+      "", id: "cc_card_number", class: "form-control",
+      placeholder: "4811 1111 1111 1114" %>
+	</fieldset>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <fieldset class="form-group">
+        <label for="cc_card_exp_month" class="col sm-2 form-control-label">
+          Tanggal ekspirasi (MM/YYYY)
+        </label>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= text_field_tag "direct[cc][expmonth]",
+              "", id: "cc_card_exp_month", class: "form-control",
+              placeholder: "01" %>
+          </div>
+          <div class="col-sm-6">
+            <%= text_field_tag "direct[cc][expyear]",
+              "", id: "cc_card_exp_year", class: "form-control",
+              placeholder: "2020" %>
+          </div>
+        </div>
+      </fieldset>
+    </div> <!-- form group for dates -->
+    <div class="col-sm-8">
+      <fieldset class="form-group">
+        <label for="cc_card_cvv">CVV</label>
+        <%= text_field_tag "direct[cc][cvv]", "",
+          id: "cc_card_cvv", class: "form-control", placeholder: "123" %>
+      </fieldset>
+    </div> <!-- form group for cvv -->
+  </div>
+
+
+  <fieldset class="form-group">
+
+  </fieldset>
+
+  <fieldset class="form-group">
+
+  </fieldset>
+  <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+<% end %>

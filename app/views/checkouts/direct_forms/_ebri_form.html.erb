@@ -1,1 +1,17 @@
-<h2>e-BRI</h2>
+<h2>CIMB Clicks</h2>
+
+<ol>
+	<li>Pastikan anda memiliki User ID BRI e-Pay, dan telah mendaftar
+		untuk menggunakan mTOKEN</li>
+	<li>Saldo anda akan di-debit otomatis sesuai dengan transaksi
+		yang harus dibayarkan</li>
+	<li>Anda memilki waktu 2 jam untuk menyelesaikan transaksi sebelum
+		transaksi tersebut otomatis dibatalkan oleh sistem</li>
+	<li>Pastikan tidak ada plugin di browser yang memblok popup</li>
+
+	<%= form_tag direct_checkouts_path do %>
+		<%= hidden_field_tag "direct[method]", "bri_epay" %>
+
+    <%= submit_tag "Bayar", class: "btn btn-primary-outline" %>
+	<% end %>
+</ol>
