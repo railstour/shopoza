@@ -21,9 +21,10 @@ Rails.application.routes.draw do
     collection do
       # end point for checking out using VT-Direct
       get "/direct" => "checkouts#direct_form"
+      post "/direct" => "checkouts#checkout_direct"
 
       # end point which veritrans will be redirected to (VT-Web)
-      get "/gateway/callbacks" => "checkouts#gateway_callbacks"
+      get "/vt/payment/callbacks" => "checkouts#vt_payment_callbacks"
     end
   end
 end
