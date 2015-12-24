@@ -36,12 +36,14 @@ ActiveRecord::Schema.define(version: 20151212235251) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "checkout_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
     t.integer  "total_price"
   end
 
+  add_index "orders", ["checkout_id"], name: "index_orders_on_checkout_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "users", force: :cascade do |t|
