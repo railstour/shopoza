@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       end
 
       quantity = params[:order_detail][:quantity]
-      if !!(quantity =~ /^\d+$/) && quantity.to_i < 0
+      if !!(quantity =~ /^\d+$/) && quantity.to_i < 1
         flash[:alert] = 'quantity must be number and greater than 0'
         redirect_to :back
         return
