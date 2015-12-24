@@ -1,6 +1,6 @@
 class OrderDetailsController < ApplicationController
   def update
-    order_detail = OrderDetail.joins(:order).find_by(id: params[:id], orders: { user_id: current_user.id })
+    order_detail = OrderDetail.joins(:order).find_by(id: params[:id], orders: { user_id: current_user.id, status: 'shopping' })
     if order_detail.present?
       if order_detail.update_attributes(order_detail_params)
         flash[:notice] = "Order is updated successfully"
@@ -12,7 +12,7 @@ class OrderDetailsController < ApplicationController
   end
 
   def destroy
-    order_detail = OrderDetail.joins(:order).find_by(id: params[:id], orders: { user_id: current_user.id })
+    order_detail = OrderDetail.joins(:order).find_by(id: params[:id], orders: { user_id: current_user.id, status: 'shopping' })
     if order_detail.present?
       if order_detail.destroy
         flash[:notice] = "order is deleted successfully"
