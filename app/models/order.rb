@@ -26,6 +26,7 @@ class Order < ActiveRecord::Base
   scope :status_shopping, lambda{ where(status: STATUS_SHOPPING)}
 
   before_save :set_total_price
+  before_create :create_checkout_id
 
   def set_total_price
     self.total_price = order_details.sum('unit_price * quantity')
@@ -35,7 +36,7 @@ class Order < ActiveRecord::Base
     fake_phone = "0856#{Random.srand.to_s[0..7]}"
     {
       transaction_details: {
-        order_id: id,
+        order_id: checkout_id,
         gross_amount: total_price
       },
       item_details: [].tap do |item_details|
@@ -63,5 +64,14 @@ class Order < ActiveRecord::Base
         customer_details[:shipping_address] = customer_details[:billing_address]
       end
     }
+  end
+
+  private
+
+  def create_checkout_id
+    begin
+      self.checkout_id = rand(36**8).to_s(36).upcase
+      self.checkout_id << DateTime.now.to_i.to_s
+    end while Order.where(id: checkout_id).present?
   end
 end
