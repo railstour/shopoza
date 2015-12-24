@@ -7,6 +7,15 @@ Rails.application.routes.draw do
   	sessions: "users/sessions",
   	unlocks: "users/unlocks"
   }
-  
+
   root to: "home#index"
+
+  resources :orders, only: [:index, :show, :create] do
+  end
+
+  resources :carts, only:[:index, :update, :create] do
+    collection do
+      resources :cart_details, only: [:update, :destroy]
+    end
+  end
 end
