@@ -7,4 +7,8 @@ module ApplicationHelper
     summary = words.truncate(length, separator: ' ')
     "#{summary} #{link_to('see more', link)}".html_safe
   end
+
+  def active_link(path)
+    'active' if request.fullpath == path
+  end
 end

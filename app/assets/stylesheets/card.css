@@ -1,24 +1,16 @@
-.card-deck {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: left;
-}
-
-.card-deck .card {
-  flex: 0 1 22.5rem;
-  margin: 0 .25rem .50rem;
-}
-
-.card-deck .card-header {
-  height: 100px;
-}
-
-.card-summary {
-  height: 100px;
-}
-.background-white {
-  background: white;
-}
 .inline-block{
   display: inline-block;
+}
+.thumbnail-header {
+  text-align: center;
+  height: 100px;
+}
+.thumbnail-description{
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: justify;
+}
+.thumbnail-image{
+  height: 185px;
+  text-align: center;
 }
