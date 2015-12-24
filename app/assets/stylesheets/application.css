@@ -10,16 +10,6 @@
    width: 100px;
  }
 
- .flash-message{
-   border-radius: 5px;
-   font-size: 22px;
-   text-transform: uppercase;
-   font-weight: bold;
-   padding: 10px 7px 0.1px 15px;
-   padding-bottom: 7px;
-   padding-left: 15px;
-   padding-top: 10px;
- }
  .center-text{
    text-align: center;
  }
